@@ -1,0 +1,57 @@
+// Основни земеделски култури по префектури на Япония.
+// Координатите са изчислени автоматично от реалните полигони на префектурите
+// (представителна точка, винаги вътре в границите на съответната префектура).
+// Културите са базирани на общоизвестни, широко документирани специализации
+// на японските префектури в земеделието (напр. Аомори – ябълки, Уакаяма/Ehime – цитруси,
+// Хокайдо – картофи и млечни продукти, Ниигата – ориз "Коошихикари", Окинава – захарна тръстика).
+// Категориите (cat) определят иконата и цвета на маркера — виж CROP_CATEGORIES в crops_layer.js.
+
+var CROPS = [
+  { iso:"JP-01", name_bg:"Хокайдо",   lon:142.9521, lat:43.4340, crops:[{bg:"Картофи",cat:"TUBER"},{bg:"Мляко и млечни продукти",cat:"DAIRY"}] },
+  { iso:"JP-02", name_bg:"Аомори",    lon:140.6263, lat:40.9111, crops:[{bg:"Ябълки",cat:"FRUIT"}] },
+  { iso:"JP-03", name_bg:"Ивате",     lon:141.5652, lat:39.6537, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-04", name_bg:"Мияги",     lon:141.2351, lat:38.3881, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-05", name_bg:"Акита",     lon:140.0898, lat:39.6920, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-06", name_bg:"Ямагата",   lon:139.9788, lat:38.6633, crops:[{bg:"Череши",cat:"FRUIT"}] },
+  { iso:"JP-07", name_bg:"Фукушима",  lon:140.2634, lat:37.3665, crops:[{bg:"Праскови",cat:"FRUIT"}] },
+  { iso:"JP-08", name_bg:"Ибараки",   lon:140.3984, lat:36.3420, crops:[{bg:"Китайско зеле",cat:"VEG"}] },
+  { iso:"JP-09", name_bg:"Точиги",    lon:139.7795, lat:36.6774, crops:[{bg:"Ягоди",cat:"FRUIT"}] },
+  { iso:"JP-10", name_bg:"Гунма",     lon:138.9194, lat:36.5220, crops:[{bg:"Зеле",cat:"VEG"}] },
+  { iso:"JP-11", name_bg:"Сайтама",   lon:139.2814, lat:36.0185, crops:[{bg:"Праз лук",cat:"VEG"}] },
+  { iso:"JP-12", name_bg:"Чиба",      lon:140.1893, lat:35.3595, crops:[{bg:"Фъстъци",cat:"NUT"}] },
+  { iso:"JP-13", name_bg:"Токио",     lon:139.2948, lat:34.2256, crops:[{bg:"Комацуна (листен зеленчук)",cat:"VEG"}] },
+  { iso:"JP-14", name_bg:"Канагава",  lon:139.3579, lat:35.3150, crops:[{bg:"Дайкон (репичка)",cat:"VEG"}] },
+  { iso:"JP-15", name_bg:"Ниигата",   lon:138.7165, lat:37.8169, crops:[{bg:"Ориз (Коошихикари)",cat:"GRAIN"}] },
+  { iso:"JP-16", name_bg:"Тояма",     lon:137.3049, lat:36.7636, crops:[{bg:"Лалета (резници)",cat:"FLOWER"}] },
+  { iso:"JP-17", name_bg:"Ишикава",   lon:136.8667, lat:37.1016, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-18", name_bg:"Фукуи",     lon:136.2393, lat:35.8975, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-19", name_bg:"Яманаши",   lon:138.6873, lat:35.5700, crops:[{bg:"Грозде",cat:"GRAPE"},{bg:"Праскови",cat:"FRUIT"}] },
+  { iso:"JP-20", name_bg:"Нагано",    lon:138.0967, lat:36.1144, crops:[{bg:"Ябълки",cat:"FRUIT"},{bg:"Маруля",cat:"VEG"}] },
+  { iso:"JP-21", name_bg:"Гифу",      lon:137.0625, lat:35.7994, crops:[{bg:"Шийтаке гъби",cat:"VEG"}] },
+  { iso:"JP-22", name_bg:"Шизуока",   lon:138.5599, lat:35.0092, crops:[{bg:"Зелен чай",cat:"TEA"}] },
+  { iso:"JP-23", name_bg:"Аичи",      lon:137.1324, lat:34.8505, crops:[{bg:"Зеле",cat:"VEG"}] },
+  { iso:"JP-24", name_bg:"Мие",       lon:136.6112, lat:34.4356, crops:[{bg:"Чай (Исе)",cat:"TEA"}] },
+  { iso:"JP-25", name_bg:"Шига",      lon:136.1095, lat:35.2470, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-26", name_bg:"Киото",     lon:135.2719, lat:35.4279, crops:[{bg:"Чай (Уджи)",cat:"TEA"}] },
+  { iso:"JP-27", name_bg:"Осака",     lon:135.4999, lat:34.6616, crops:[{bg:"Листни зеленчуци",cat:"VEG"}] },
+  { iso:"JP-28", name_bg:"Хього",     lon:134.8222, lat:34.9433, crops:[{bg:"Ориз за саке",cat:"GRAIN"}] },
+  { iso:"JP-29", name_bg:"Нара",      lon:135.8967, lat:34.3202, crops:[{bg:"Каки (японска хурма)",cat:"FRUIT"}] },
+  { iso:"JP-30", name_bg:"Уакаяма",   lon:135.4048, lat:33.8135, crops:[{bg:"Мандарини",cat:"CITRUS"},{bg:"Сливи Уме",cat:"FRUIT"}] },
+  { iso:"JP-31", name_bg:"Тотори",    lon:133.8902, lat:35.4304, crops:[{bg:"Круши",cat:"FRUIT"}] },
+  { iso:"JP-32", name_bg:"Шимане",    lon:132.8371, lat:35.4299, crops:[{bg:"Божури (рязан цвят)",cat:"FLOWER"}] },
+  { iso:"JP-33", name_bg:"Окаяма",    lon:133.8474, lat:34.8024, crops:[{bg:"Грозде (Мускат)",cat:"GRAPE"},{bg:"Бели праскови",cat:"FRUIT"}] },
+  { iso:"JP-34", name_bg:"Хирошима",  lon:132.7752, lat:34.5567, crops:[{bg:"Лимони",cat:"CITRUS"}] },
+  { iso:"JP-35", name_bg:"Ямагучи",   lon:131.1376, lat:34.3157, crops:[{bg:"Нацумикан (цитрус)",cat:"CITRUS"}] },
+  { iso:"JP-36", name_bg:"Токушима",  lon:134.3406, lat:33.8486, crops:[{bg:"Судачи (цитрус)",cat:"CITRUS"}] },
+  { iso:"JP-37", name_bg:"Кагава",    lon:134.0438, lat:34.3134, crops:[{bg:"Маслини",cat:"OLIVE"}] },
+  { iso:"JP-38", name_bg:"Ехиме",     lon:132.5138, lat:33.5532, crops:[{bg:"Мандарини",cat:"CITRUS"}] },
+  { iso:"JP-39", name_bg:"Кочи",      lon:133.5051, lat:33.1339, crops:[{bg:"Патладжан",cat:"VEG"}] },
+  { iso:"JP-40", name_bg:"Фукуока",   lon:130.5852, lat:33.7887, crops:[{bg:"Ягоди (Амаоу)",cat:"FRUIT"}] },
+  { iso:"JP-41", name_bg:"Сага",      lon:130.1266, lat:33.3115, crops:[{bg:"Ориз",cat:"GRAIN"}] },
+  { iso:"JP-42", name_bg:"Нагасаки",  lon:129.2171, lat:33.0863, crops:[{bg:"Сладки картофи",cat:"TUBER"}] },
+  { iso:"JP-43", name_bg:"Кумамото",  lon:130.7062, lat:32.6022, crops:[{bg:"Дини",cat:"FRUIT"}] },
+  { iso:"JP-44", name_bg:"Оита",      lon:131.6887, lat:33.1123, crops:[{bg:"Кабосу (цитрус)",cat:"CITRUS"}] },
+  { iso:"JP-45", name_bg:"Миядзаки",  lon:131.2472, lat:32.0453, crops:[{bg:"Манго",cat:"FRUIT"}] },
+  { iso:"JP-46", name_bg:"Кагошима",  lon:130.2277, lat:31.4556, crops:[{bg:"Сладки картофи",cat:"TUBER"},{bg:"Чай",cat:"TEA"}] },
+  { iso:"JP-47", name_bg:"Окинава",   lon:127.5422, lat:26.5892, crops:[{bg:"Захарна тръстика",cat:"CANE"},{bg:"Ананас",cat:"FRUIT"}] }
+];
